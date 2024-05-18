@@ -1,0 +1,2 @@
+g++ -o Task11 main.cpp bit_operations.cpp
+Task11 12 2
