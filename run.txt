@@ -1,2 +1,2 @@
-g++ -o Task11 main.cpp bit_operations.cpp
-Task11 12 2
+g++ -o lab6 main.cpp bit_operations_t11.cpp bit_operations_t12.cpp utils.cpp
+lab6 Task11 [] []
