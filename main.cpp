@@ -12,13 +12,11 @@ using namespace std;
 
 int main(int argc, char* argv[]) {
     string task = argv[1];
-    cout << argc<<endl;
-
     if (argc == 4) {
         if(task == "task11")task11(argv);
         else if(task == "task12")task12(argv);
     } 
-    else if (task == "approximate") doApproximate(argc, argv);
+    else if (( argc == 4 || argc== 6) && task == "approximate") doApproximate(argc, argv);
 
     else {
         cerr<<"Incorrect task name!"<<endl;

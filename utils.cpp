@@ -3,7 +3,7 @@
 #include <iostream>
 
 bool isValidNumber(const char* str) {
-    std::regex numberRegex("[1-9][0-9]*");
+    std::regex numberRegex("[1-9][0-9]*|0");
     return std::regex_match(str, numberRegex);
 }
 
@@ -15,13 +15,26 @@ bool isValidDouble(const char* str) {
     std::regex doubleRegex(R"(^[-+]?\d*\.?\d+([eE][-+]?\d+)?$)");
     return std::regex_match(str, doubleRegex);
 }
-bool validArgs11_12(char* args[]){
+
+bool validArgs11(char* args[]){
     if (!isValidNumber(args[2])) {
-        std::cerr << "Error: The argument of the number must be a valid floating point number." << std::endl;
+        std::cerr << "Error: The argument of the number must be an integer." << std::endl;
         return false;
     }
     if(!isValidShift(args[3])){
         std::cerr << "Error: The shift argument must be an integer in the range from 0 to 64, not inclusive." << std::endl;
+        return false;
+    }
+    return true;
+}
+
+bool validArgs12(char* args[]){
+    if (!isValidNumber(args[2])) {
+        std::cerr << "Error: The argument of the number must be an integer." << std::endl;
+        return false;
+    }
+    if(!isValidNumber(args[3])){
+        std::cerr << "Error: The argument of the number must be an integer." << std::endl;
         return false;
     }
     return true;

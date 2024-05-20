@@ -1,5 +1,5 @@
 g++ -o lab6 main.cpp bit_operations_t11.cpp bit_operations_t12.cpp utils.cpp approximate.cpp
-lab6 Task11 [] []
+lab6 task11 [] []
 
 task11
 task12
