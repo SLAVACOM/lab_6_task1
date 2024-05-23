@@ -1,10 +1,21 @@
 #include "utils.h"
 #include <regex>
 #include <iostream>
+#include <cstdint>
+#include <limits>
 
 bool isValidNumber(const char* str) {
     std::regex numberRegex("[1-9][0-9]*|0");
-    return std::regex_match(str, numberRegex);
+    if (!std::regex_match(str, numberRegex)) return false;
+
+    try {
+        uint64_t number = std::stoull(str);
+        if (number > std::numeric_limits<uint64_t>::max()) return false;
+    } catch (const std::exception& e) {
+        return false;
+    }
+        return true;
+
 }
 
 bool isValidShift(const char* str) {
