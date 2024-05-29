@@ -11,10 +11,8 @@ bool isValidNumber(const char* str) {
     try {
         uint64_t number = std::stoull(str);
         if (number > std::numeric_limits<uint64_t>::max()) return false;
-    } catch (const std::exception& e) {
-        return false;
-    }
-        return true;
+    } catch (const std::exception& e){return false;}
+    return true;
 
 }
 
@@ -24,8 +22,15 @@ bool isValidShift(const char* str) {
 }
 bool isValidDouble(const char* str) {
     std::regex doubleRegex(R"(^[-+]?\d*\.?\d+([eE][-+]?\d+)?$)");
-    return std::regex_match(str, doubleRegex);
+    if (!std::regex_match(str, doubleRegex)) return false;
+
+	try{
+		double number = std::stod(str);
+		if(number > std::numeric_limits<double>::max()) return false;
+	} catch(const std::exception& e){return false;}
+    return true;
 }
+
 
 bool validArgs11(char* args[]){
     if (!isValidNumber(args[2])) {

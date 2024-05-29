@@ -15,6 +15,7 @@ int main(int argc, char* argv[]) {
     if (argc == 4) {
         if(task == "task11")task11(argv);
         else if(task == "task12")task12(argv);
+        else cerr<<"Incorrect args!"<<endl;
     } 
     else if (( argc == 5 || argc== 6) && task == "approximate") doApproximate(argc, argv);
 

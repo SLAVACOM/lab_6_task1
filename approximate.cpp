@@ -30,7 +30,6 @@ void doApproximate(int countArgs, char* args[]) {
 			double num2 = std::stod(args[3]);
 			double absEpsilon = std::stod(args[4]);
 			double relEpsilon = std::stod(args[5]);
-			
 			cout << "Numbers: " << num1 << " and " <<num2 << (approximatelyEqualAbsRel(num1, num2, absEpsilon, relEpsilon) ? " equals" : " no equals") << endl;
 		}
 	}else cerr<<"Incorrect arguments"<<endl;
